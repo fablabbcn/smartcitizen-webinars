@@ -4,6 +4,8 @@ tags: presentation
 
 # Smart Citizen Webinar [EN]
 
+[TOC]
+
 <a data-flickr-embed="true" href="http://smartcitizen.me" title="SCK 2.1 in context"><img src="https://live.staticflickr.com/65535/48020070592_ebad902f1d_h.jpg" alt="SCK 2.1 in context"></a>
 
 ## The kit
@@ -27,6 +29,39 @@ The sensor list is shown in the table below:
 :::success
 The most relevant sensors for outdoor exposure are noise (Noise dBA) and PM1-PM2.5
 :::
+
+### Sensors
+
+The sensors in the _Urban Sensor Board_ are a selection of low-cost sensors ([Rai et al.](https://doi.org/10.1016/j.scitotenv.2017.06.266)) that allow monitoring:
+
+- Temperature and relative humidity
+- Barometric pressure
+- **Ambient noise** in different scales (**dBA**, dBC, dBZ)
+- **Particulate Matter** (PM) in different sizes (PM1, **PM2.5**, PM10)
+- Indicative measurements TVOC & eCO2 (CO2 equivalent)
+
+:::info
+Additionally, a more complete description of the sensors in the Urban Board can be found at: http://docs.smartcitizen.me/Components/Urban%20Sensor%20Board/. All the performance of the sensors can be found in: https://docs.smartcitizen.me/Components/sensors/performance/
+:::
+
+
+
+### Operation modes and interface
+
+The kit has two main operation modes: _setup_ mode, and *recording* mode. The first configures the second, allowing to select the recording mode for the data (online or SD-card). The [onboarding section](#Onboarding) explains the differences between them.
+
+:::info
+These modes are reflected in the status of the LED, and are documented in the following page of the documentation: https://docs.smartcitizen.me/Smart%20Citizen%20Kit/#operation-modes
+:::
+
+The user also has the option to change the operation mode by pressing the button:
+
+<img src="https://live.staticflickr.com/65535/48439505516_d210ce2c8a_h.jpg" alt="SCK 2.1 Outdoor enclosure"><br>
+
+:::info
+The interfaces are documented in the following page: https://docs.smartcitizen.me/Smart%20Citizen%20Kit/#user-interfaces
+:::
+
 
 ### Power
 
@@ -52,7 +87,15 @@ The LED will start flashing in orange when the SCK has low battery. After connec
 One option for powering the Kit is to leave it on battery and bring a power extention to it every 3 weeks to charge it. For instance, you can do so through a window and just during some hours.
 :::
 
-### Enclosure and mounting system
+## Onboarding
+
+[![](https://i.imgur.com/v5GmJeo.png)](http://start.smartcitizen.me)
+
+The _onboarding_ is a web interface that allows configuring the SCK in the desired mode, and to link the device with an user profile in the platform.
+
+It is important to understand that the **same physical device can be linked with several devices in the platform**, although it can only send data to one of them at a time. The link between them is done through a _token_, which is assigned during the _onboarding_ procedure. This is then associated with an user profile and it's copied into the physical device through a mobile interface. This interface also serves as a method to tell the device the Wi-Fi credentials (SSID and password).
+
+## Enclosure and mounting system
 
 The mounting system provided has the possibility to mount on wall or post. It is a rain-proof enclosure that can be opened by hand:
 
@@ -62,46 +105,6 @@ The mounting system provided has the possibility to mount on wall or post. It is
 <img src="https://live.staticflickr.com/65535/48991677568_9b41b36cce_k.jpg">
 </div>
 <br>
-
-
-### Sensors
-
-The sensors in the _Urban Sensor Board_ are a selection of low-cost sensors ([Rai et al.](https://doi.org/10.1016/j.scitotenv.2017.06.266)) that allow monitoring:
-
-- Temperature and relative humidity
-- Barometric pressure
-- **Ambient noise** in different scales (**dBA**, dBC, dBZ)
-- **Particulate Matter** (PM) in different sizes (PM1, **PM2.5**, PM10)
-- Indicative measurements TVOC & eCO2 (CO2 equivalent)
-
-:::info
-Additionally, a more complete description of the sensors in the Urban Board can be found at: http://docs.smartcitizen.me/Components/Urban%20Sensor%20Board/
-:::
-
-### Operation modes and interface
-
-The kit has two main operation modes: _setup_ mode, and *recording* mode. The first configures the second, allowing to select the recording mode for the data (online or SD-card). The [onboarding section](#Onboarding) explains the differences between them.
-
-
-:::info
-These modes are reflected in the status of the LED, and are documented in the following page of the documentation: https://docs.smartcitizen.me/Smart%20Citizen%20Kit/#operation-modes
-:::
-
-The user also has the option to change the operation mode by pressing the button:
-
-<img src="https://live.staticflickr.com/65535/48439505516_d210ce2c8a_h.jpg" alt="SCK 2.1 Outdoor enclosure"><br>
-
-:::info
-The interfaces are documented in the following page: https://docs.smartcitizen.me/Smart%20Citizen%20Kit/#user-interfaces
-:::
-
-## Onboarding
-
-[![](https://i.imgur.com/v5GmJeo.png)](http://start.smartcitizen.me)
-
-The _onboarding_ is a web interface that allows configuring the SCK in the desired mode, and to link the device with an user profile in the platform.
-
-It is important to understand that the **same physical device can be linked with several devices in the platform**, although it can only send data to one of them at a time. The link between them is done through a _token_, which is assigned during the _onboarding_ procedure. This is then associated with an user profile and it's copied into the physical device through a mobile interface. This interface also serves as a method to tell the device the Wi-Fi credentials (SSID and password).
 
 ## Data
 
