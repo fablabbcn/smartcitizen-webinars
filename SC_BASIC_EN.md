@@ -39,15 +39,11 @@ Some recommendations are listed below:
 <img src="https://i.imgur.com/ABSXX4w.jpg" width="400px">
 </div>
 
-- A **full charge can take up to 9 hours**, and this charge will last for at least 3-4 weeks
+- A **full charge can take up to 9 hours**, and this charge will last for at least 3-4 weeks. You can check this battery calculator to get a more accurate estimation: https://docs.smartcitizen.me/Smart%20Citizen%20Kit/#battery-calculator
 
-:::danger
-For safety reasons the SCK has a timer and **it will stop the charging process after 5 hours** (this was designed with the default 2000mAh battery in mind). 
-To be able to charge the custom 6000mAh battery, a simple **click on the reset button should restart the timer** and the charging will continue for 5 hours more.
+#### Saving power
 
-![](https://i.imgur.com/lnFrnwS.png)
-_Reset button_
-:::
+Battery can be saved by reducing the reading and publication intervals of the kit. Make sure to follow this guide: https://docs.smartcitizen.me/Guides/getting%20started/Using%20the%20Shell/#set-recording-and-publication-intervals
 
 :::info
 **When to charge it?**
@@ -156,6 +152,20 @@ The framework repository can be found in: https://github.com/fablabbcn/smartciti
 
 [![](https://i.imgur.com/sO7ZBxv.png)](https://now.smartcitizen.me/#bgg-project)
 
+### Troubleshooting :scream:
+
+1. :radio_button: **The magical reset button**
+
+![](https://i.imgur.com/lnFrnwS.png)
+
+2. 👷 **Troubleshooting page** https://docs.smartcitizen.me/Troubleshooting/
+
+3. :nut_and_bolt: **Debugging the sensors** https://docs.smartcitizen.me/Guides/getting%20started/Debugging%20your%20sensors/
+
+4. 💬 **Forum**: https://forum.smartcitizen.me
+
+5. ❓ **Support**: [support@smartcitizen.me](mailto:support@smartcitizen.me)
+
 ## Interesting links
 
 :::info
@@ -172,8 +182,3 @@ The framework repository can be found in: https://github.com/fablabbcn/smartciti
 - **Particle Characterisation**: https://www.atmos-meas-tech-discuss.net/amt-2019-422/amt-2019-422.pdf
 - **iSCAPE Results**: https://cordis.europa.eu/project/id/689954/results
 :::
-
-### Support
-
-💬 **Discuss**: forum.smartcitizen.me
-❓ **Support**: support@smartcitizen.me
