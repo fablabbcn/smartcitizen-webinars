@@ -41,7 +41,7 @@ The sensors in the _Urban Sensor Board_ are a selection of low-cost sensors ([Ra
 - Indicative measurements TVOC & eCO2 (CO2 equivalent)
 
 :::info
-Additionally, a more complete description of the sensors in the Urban Board can be found at: http://docs.smartcitizen.me/Components/Urban%20Sensor%20Board/. All the performance of the sensors can be found in: https://docs.smartcitizen.me/Components/sensors/performance/
+Additionally, a more complete description of the sensors in the Urban Board can be found at: https://docs.smartcitizen.me/Components/boards/Urban%20Board/. All the performance of the sensors can be found in: https://docs.smartcitizen.me/Components/sensors/performance/
 :::
 
 
