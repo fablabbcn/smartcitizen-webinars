@@ -24,7 +24,17 @@ The Smart Citizen Kit (SCK) is the core of a modular hardware system which aims 
 
 The sensor list is shown in the table below:
 
-![](https://i.imgur.com/JAma2LX.png)
+
+| Measurement | Units | Sensor |
+| -------- | -------- | -------- |
+| Air temperature     | degC     | Sensirion SHT-31     |
+| Relative Humidity     | %REL     | Sensirion SHT-31     |
+| Noise level     | dBA     | Invensense ICS43432     |
+| Ambient Light     | Lux     | Rohm BH1721FVC     |
+| Barometric pressure     | kPa     | NXP MPL3115A26     |
+| Equivalent Carbon Dioxide     | ppm     | AMS CCS811     |
+| Volatile Organic Compounds     | ppb     | AMS CCS811     |
+| Particle Matter PM1 / 2.5  / 10     |  ug/m3     | Plantower PMS5003     |
 
 :::success
 The most relevant sensors for outdoor exposure are noise (Noise dBA) and PM1-PM2.5
@@ -41,7 +51,10 @@ The sensors in the _Urban Sensor Board_ are a selection of low-cost sensors ([Ra
 - Indicative measurements TVOC & eCO2 (CO2 equivalent)
 
 :::info
-Additionally, a more complete description of the sensors in the Urban Board can be found at: https://docs.smartcitizen.me/Components/boards/Urban%20Board/. All the performance of the sensors can be found in: https://docs.smartcitizen.me/Components/sensors/performance/
+Additionally, a more **complete description** of the sensors in the Urban Board can be found at: https://docs.smartcitizen.me/Components/boards/Urban%20Board/. All the **performance** of the sensors can be found in: https://docs.smartcitizen.me/Components/sensors/performance/. Some other sensors can be found:
+- **PM Sensor**: https://docs.smartcitizen.me/Components/sensors/air/PM%20Sensors/
+- **AMS CCS811**: https://docs.smartcitizen.me/Components/sensors/air/CCS811/
+- **Noise**: https://docs.smartcitizen.me/Components/sensors/air/Noise/
 :::
 
 
@@ -87,11 +100,23 @@ The LED will start flashing in orange when the SCK has low battery. After connec
 One option for powering the Kit is to leave it on battery and bring a power extention to it every 3 weeks to charge it. For instance, you can do so through a window and just during some hours.
 :::
 
+### Power Supply
+
+The Smart Citizen Power Supply is a simple power supply to power the SCK and the Smart Citizen Station with 110-230 AC mains power, including a 1.6A input fuse protection and a 5VDC regulated output.
+
+:::info
+More information on the unit: https://docs.smartcitizen.me/Components/boards/Power%20Supply/ and how to check it's **operation**: https://docs.smartcitizen.me/Guides/deployments/Using%20the%20power%20supply/
+:::
+
 ## Onboarding
 
 [![](https://i.imgur.com/v5GmJeo.png)](http://start.smartcitizen.me)
 
 The _onboarding_ is a web interface that allows configuring the SCK in the desired mode, and to link the device with an user profile in the platform.
+
+:::success
+Check this guide to not miss a step: https://docs.smartcitizen.me/Guides/getting%20started/Onboarding%20Sensors/
+:::
 
 It is important to understand that the **same physical device can be linked with several devices in the platform**, although it can only send data to one of them at a time. The link between them is done through a _token_, which is assigned during the _onboarding_ procedure. This is then associated with an user profile and it's copied into the physical device through a mobile interface. This interface also serves as a method to tell the device the Wi-Fi credentials (SSID and password).
 
@@ -176,6 +201,8 @@ The framework repository can be found in: https://github.com/fablabbcn/smartciti
 - **Onboarding**: http://start.smartcitizen.me
 - **#Now tracking**: https://now.smartcitizen.me/#bgg-project
 - **Enclosures (3D printing parts)**: https://github.com/fablabbcn/smartcitizen-enclosures/tree/master/SmartCitizen%20Outdoor%20Cases%20V2.0-2.1
+- **Using the Shell**: https://docs.smartcitizen.me/Guides/getting%20started/Using%20the%20Shell/
+- **Debugging your sensors**: https://docs.smartcitizen.me/Guides/getting%20started/Debugging%20your%20sensors/
 :::
 
 :::info
