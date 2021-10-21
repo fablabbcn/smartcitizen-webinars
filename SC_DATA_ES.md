@@ -5,9 +5,14 @@ title: Smart Citizen Data Webinar [ES]
 
 # Smart Citizen Data Webinar
 
+[![hackmd-github-sync-badge](https://hackmd.io/OtkFE3TIRruBNS5L4BbTpw/badge)](https://hackmd.io/OtkFE3TIRruBNS5L4BbTpw)
+
+
 [TOC]
 
 ## Acceso a los datos
+
+![](https://i.imgur.com/loUgFJv.png)
 
 El acceso a los datos se puede realizar de varias maneras, de menor a mayor complejidad:
 
@@ -36,7 +41,7 @@ El encabezado de los ficheros tiene la siguiente forma:
 Los datos inválidos se muestran como `null`
 :::
 
-En el CSV se pueden realizar comparativas sencillas de datos (ver [ejemplos](/#Ejemplos-CSV))
+En el CSV se pueden realizar comparativas sencillas de datos (ver [ejemplos](#Visualización-CSV))
 
 ### CSV
 
@@ -46,15 +51,11 @@ Es posible obtener los datos de todo un dispositivo concatenado en formato CSV. 
 
 ![](https://i.imgur.com/6HO5IW2.png)
 
-En el CSV se pueden realizar comparativas sencillas de datos (ver [ejemplos](/#Ejemplos-CSV))
-
-### Ejemplos CSV
-
-:::success
-EJEMPLOS
-:::
+En el CSV se pueden realizar comparativas sencillas de datos (ver [ejemplos](#Visualización-CSV))
 
 ### API
+
+![](https://i.imgur.com/qiDKL0r.jpg)
 
 El API es la forma más avanzada de acceso a los datos, a la vez que más versátil y escalable. Estos son los puntos de acceso más importantes:
 
@@ -84,6 +85,8 @@ Los datos del API se pueden solicitar a través de peticiones HTTP para recupera
 #### Scripts
 
 Una manera de acceder a estos datos es utilizar el package de `python` disponible en [`scdata`](https://pypi.org/project/scdata/) y en el [repositorio git](https://github.com/fablabbcn/smartcitizen-data).
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/FAIR_data_principles.jpg/1200px-FAIR_data_principles.jpg)
 
 ##### Instalación
 
@@ -164,7 +167,7 @@ Es posible realizar un procesado de los datos "customizado" al descargarlos en l
 
 Para evitar analizar los datos manualmente, se puede definir un procesado automático una vez definidas las funciones y modelos de procesado.
 
-Es procedimiento sería:
+Es procedimiento a seguir para la integración:
 
 - Añadir la funcionalidad necesaria en `scdata` mediante PR al repositorio de [smartcitizen-data](https://github.com/fablabbcn/smartcitizen-data)
 - Generar `blueprint` asociado y `hardware_id` y añadirlo al repositorio de [smartcitizen-data](https://github.com/fablabbcn/smartcitizen-data) mediante PR
@@ -172,7 +175,191 @@ Es procedimiento sería:
 
 ## Visualización
 
+Es posible visualizar los datos de varias formas:
 
+- Datos CSV
+- Scripts (`scdata`)
+- Otros
+
+### Visualización CSV
+
+- Timeseries
+- Scatter plot
+
+:::info
+**Pasos:**
+
+- Hacer copia del CSV a documento .xls o .ods
+- Eliminar filas 2 a 4
+- Hacer filtro automático
+- En caso de querer graficar PM, eliminar `null`
+:::
+
+![](https://i.imgur.com/SVYayDF.png =400x)
+
+- Generar gráficos con herramientas por defecto (mejor utilizar Line o XY (Scatter como Chart type para timeseries o scatter plots))
+
+![](https://i.imgur.com/yJkbrf4.png)
+
+- Ejemplo timeseries con Line Chart Type:
+
+![](https://i.imgur.com/aTdcb2t.png)
+
+- Ejemplo Scatter plot (con línea de tendencia y R2) - baja correlación
+
+![](https://i.imgur.com/8m47ogk.png)
+
+- Ejemplo Scatter plot (con línea de tendencia y R2) - alta correlación
+
+![](https://i.imgur.com/YkjR2S6.png)
+
+:::warning
+Este método tiene el limitante del número de datos a graficar.
+:::
+
+:::success
+**Comentarios**
+
+- La correlación de dos variables implica únicamente cuánto de relacionadas están entre ellas en una expresión lineal, es decir, cuánto de predecible es una variable cuando tenemos la otra. Sin embargo, no implica causalidad. Un valor de correlación alto (cercano a 1), es indicador de alta relación entre ambas variables. Es importante además tener en cuenta que las variables deben tener grados similares de ruido (o no) para evitar falsas conclusiones
+- Cuando representemos datos, especialmente intendando compararlos, es importante establecer escalas "justas (_justicia_)", no tratando de ampliar o reducir los ejes para forzar conclusiones sobre los datos en lugar de extraerlas de los mismos: más ejemplos en esta [referencia](https://infogram.com/blog/dataviz-chart-guide-101-dos-and-donts/)
+
+:::
+
+### Scripts
+
+- Gráficos interactivos
+- Varios formatos de gráfico: timeseries, scatter-plot, scatter-plot matrix, dendogram, target plot, violin, box plot...
+
+**Ejemplos**
+
+- Timeseries de ruido
+![](https://i.imgur.com/u1WyxSf.png)
+
+- Máximos de temperatura cada 24h
+![](https://i.imgur.com/LXxzgPk.png)
+
+- Distribución diaria de ruido
+![](https://i.imgur.com/sKtz3m9.png)
+
+- Promedio de particulas respecto a eventos
+![](https://i.imgur.com/bPJ3FeE.png)
+
+:::success
+**Ventajas**
+
+- Manejo de altas cantidades de datos con herramientas adaptadas a ello
+- Versatilidad en el análisis y la visualización
+- Muchos ejemplos avanzados en github.com, stackoverflow.com, etc...
+
+:::
+
+### Otros
+
+Adicionalmente, existen otros métodos de visualización y conectores en [toolkit](https://github.com/fablabbcn/smartcitizen-toolkit):
+
+- Nodered
+- Processing
+- ...
 
 ## Análisis
 
+Antes de proceder al análisis, se recomienda seguir los siguientes pasos:
+
+- Definir el objetivo del análisis
+- Preprocesar y validar los datos: filtrado, limpieza, etc.
+- Calcular métricas: promedios, máximos, mínimos, desviaciones
+- Realizar visualizaciones
+- Derivar conclusiones (datos vs. standards)
+- Generar report
+
+### Preprocesado
+
+En sensores en general, y más incluso en el caso de los sensores de bajo coste para medidas ambientales, se recomienda aplicar filtrado (entendido como smoothing) en las lecturas.
+
+**Ejemplos**
+
+- Moving average, rolling average, etc
+
+![](https://i.imgur.com/DYc7pXV.png)
+
+:::danger
+Es peligroso hacer un smoothing muy alto de los datos al poder perder información importante de los mismos
+:::
+
+Adicionalmente, se recomienda hacer limpieza de `outliers`, por ejemplo derivados de lecturas erróneas de lectores. El origen de estos `outliers` puede proceder de:
+
+- Periodos de adaptación de sensores
+- Errores en la cadena de lectura
+- Sucesos aleatorios (golpes, salpicadura o condensación en los sensores que provoquen fallas)
+
+**Ejemplos**
+
+![](https://i.imgur.com/IB67TdY.png)
+
+:::info
+Normalmente, una gran cantidad de `outliers` se eliminan simplemente haciendo un filtrado de los datos. 
+
+Otros métodos alternativos:
+
+- Peak detection
+- Stadistical Outlier removal
+:::
+
+### Cálculo de métricas
+
+**Métricas comunes:**
+
+1. Promedio, máximos, mínimos de la lecturas a distintos intervalos: periodo completo, horario, diario, etc:
+
+```python=
+for device in test.devices:
+    print (f"{device} PM1 avg: {test.devices[device].readings['PM_1'].mean()}")
+    print (f"{device} PM1 max: {test.devices[device].readings['PM_1'].max()}")
+    print (f"{device} PM1 min: {test.devices[device].readings['PM_1'].min()}")
+```
+
+Resultado:
+
+```
+14129 PM1 avg: 5.776936723832052
+14129 PM1 max: 73.0
+14129 PM1 min: 0.0
+```
+
+2. Desviaciones en distintos intervalos (no sólo valores puntuales, sino cuánto varían)
+
+### Derivar conclusiones
+
+Tratar de incluir otros datos en el _mix_: bien otras redes de monitorización (sirven además para validar la nuestra), así como standards:
+
+:::info
+**Ejemplos**
+- Redes locales: http://www.aire.cdmx.gob.mx
+- Standards WHO: https://www.who.int/news/item/22-09-2021-new-who-global-air-quality-guidelines-aim-to-save-millions-of-lives-from-air-pollution
+:::
+
+### Generación de reports
+
+Documentos explicativos de análisis que contengan información sobre:
+
+- Qué datos se usaron para el análisis, de qué sensores
+- Qué procesado sufrieron
+- Cómo se acceden
+- ...
+
+:::info
+**TL;DR**
+No es suficiente tener sensores de código abierto, ni datos abiertos, sino explicar cómo esos datos se han usado, dónde están, cómo se han procesado y qué conclusiones se han extraído
+:::
+
+Es posible generar directamente análisis y reports `html` y `pdf` con estas referencias en `scdata`:
+
+![](https://i.imgur.com/2fMdu1t.png)
+
+![](https://i.imgur.com/3doY810.png)
+
+:::info
+**Ejemplos**
+
+https://github.com/fablabbcn/smartcitizen-data/blob/master/examples/notebooks/11_making_html-pdf_reports.ipynb
+:::
